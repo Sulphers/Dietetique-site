@@ -7,12 +7,12 @@
   
   /* COULEURS GLOBALES */
   :root {
-    --bg-color: #FAEBD7;         /* Beige clair pour le fond */
-    --accent-color: #D99C83;     /* Couleur saumon (approximatif) */
-    --blueberry-color: #4F6D7A;  /* Bleu d’accent */
-    --text-color: #333;          /* Couleur principale du texte */
+    --bg-color: #FAEBD7;         
+    --accent-color: #D99C83;     
+    --blueberry-color: #4F6D7A; 
+    --text-color: #333;          
   
-    --dark-bg: #2f2f2f;          /* Footer sombre */
+    --dark-bg: #2f2f2f;          
   }
   
   /* TYPO */
