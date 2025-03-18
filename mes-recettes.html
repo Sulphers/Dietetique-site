@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes Recettes - Cabinet Ines</title>
+  <meta name="description" content="Découvrez les recettes proposées par Ines, diététicienne fonctionnelle.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Polices et CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- (Optionnel) Icônes, si besoin pour ornement -->
+  <!-- <script src="https://kit.fontawesome.com/a2e3be1c25.js" crossorigin="anonymous"></script> -->
+
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- HEADER (NAVBAR) -->
+  <header>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/logo_ines.jpg" class="logo" alt="Logo cabinet Ines" loading="lazy">
+      </a>
+      <ul class="nav-links">
+        <!-- Accueil mis en avant -->
+        <li><a href="index.html" class="nav-home">Accueil</a></li>
+        <li><a href="mes-recettes.html">Mes Recettes</a></li>
+        <li><a href="me-contacter.html">Me Contacter</a></li>
+      </ul>
+      <a href="rendezvous.html" class="nav-cta">Prendre rendez-vous</a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECTION HERO (RECETTES) -->
+  <section class="recipes-hero">
+    <div class="hero-text">
+      <h1>Mes Recettes Favorites</h1>
+      <p>
+        De délicieuses idées pour allier plaisir et équilibre.
+        Découvrez des plats simples, gourmands et sains&nbsp;!
+      </p>
+    </div>
+  </section>
+
+  <!-- EFFET DE VAGUE ENTRE LA HERO ET LE RESTE DE LA PAGE -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fff" fill-opacity="1" d="M0,0L1440,100L1440,0L0,0Z"></path>
+    </svg>
+  </div>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main>
+    <!-- INTRO (Optionnel) -->
+    <section class="recipe-intro">
+      <h2>Découvrez nos recettes&nbsp;!</h2>
+      <p>
+        Toutes mes recettes sont conçues pour vous aider à adopter une
+        alimentation saine et équilibrée au quotidien, sans sacrifier
+        la saveur ni le plaisir. Chaque plat est pensé pour
+        compléter votre programme nutritionnel tout en restant
+        gourmand et accessible.
+      </p>
+    </section>
+
+    <!-- GRILLE DE RECETTES -->
+    <div class="recipes-grid">
+      <!-- Exemple de carte 1 -->
+      <article class="recipe-card">
+        <img src="assets/images/recette1.jpg" alt="Photo recette 1" class="recipe-image" loading="lazy">
+        <div class="recipe-content">
+          <h3>Recette n°1 : Smoothie Vert Énergisant</h3>
+          <p>
+            Un smoothie riche en vitamines et minéraux, idéal pour faire le plein
+            d’énergie. Mélangez épinards, concombre, kiwi et citron vert, puis
+            dégustez !
+          </p>
+          <a href="#" class="recipe-btn">Voir la recette</a>
+        </div>
+      </article>
+
+      <!-- Exemple de carte 2 -->
+      <article class="recipe-card">
+        <img src="assets/images/recette2.jpg" alt="Photo recette 2" class="recipe-image" loading="lazy">
+        <div class="recipe-content">
+          <h3>Recette n°2 : Salade Protéinée au Quinoa</h3>
+          <p>
+            Parfaite pour le déjeuner&nbsp;! Associez quinoa, légumes frais,
+            pois chiches, et un filet d’huile d’olive. Un repas complet
+            et équilibré.
+          </p>
+          <a href="#" class="recipe-btn">Voir la recette</a>
+        </div>
+      </article>
+
+      <!-- Ajoutez d’autres cartes à l’identique -->
+      <!-- ... -->
+
+    </div>
+
+    <button id="scrollTopBtn" aria-label="Retour en haut">
+      <span class="arrow-up"></span>
+    </button>
+    
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Cabinet Ines - Diététique fonctionnelle. Tous droits réservés.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
