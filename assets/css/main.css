@@ -7,14 +7,14 @@
   
   /* COULEURS GLOBALES */
   :root {
-    --bg-color: #FAEBD7;         
-    --accent-color: #D99C83;     
-    --blueberry-color: #4F6D7A; 
-    --text-color: #333;          
-  
-    --dark-bg: #2f2f2f;          
+    --bg-color: #FAF4EE;           /* Beige clair doux */
+    --accent-color: #EAD2C5;       /* Saumon clair, conservé */
+    --blueberry-color: #D99C83;    /* Terracotta clair plus marqué, contraste subtil */
+    --text-color: #333;            
+    --dark-bg: #2f2f2f;            
   }
   
+
   /* TYPO */
   body {
     font-family: 'Montserrat', sans-serif;
@@ -36,8 +36,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, var(--accent-color), var(--blueberry-color));
+    background: linear-gradient(135deg, #EAD2C5, #D99C83);
   }
+  
   
   .nav-logo {
     display: flex;
@@ -64,7 +65,7 @@
     font-weight: 600;
     color: #fff; /* liens en blanc */
     position: relative;
-    padding: 0.25rem 0;
+    padding: 0.25rem 0.9rem;
     transition: color 0.3s;
   }
   
@@ -139,30 +140,48 @@
   
   /* HERO */
   .hero {
+    position: relative;
     height: 70vh;
     min-height: 400px;
-    background: linear-gradient(120deg, var(--blueberry-color) 40%, var(--accent-color));
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     text-align: center;
     padding: 1rem;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('../images/alimentation-accueil.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
   }
   
   .hero-content {
+    position: relative;
+    z-index: 2; /* important pour passer devant l'image */
     max-width: 800px;
   }
   
-  .hero h1 {
+  .hero-content h1{
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* améliore la lisibilité du texte */
     font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 700;
   }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+
+  .hero-content p{
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* améliore la lisibilité du texte */
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
   }
   
   .hero button {
