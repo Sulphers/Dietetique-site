@@ -34,16 +34,13 @@
   .main-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 1rem 2rem;
     background: linear-gradient(135deg, #EAD2C5, #D99C83);
   }
   
   
   .nav-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+    margin-right: 2rem; 
   }
   
   .logo {
@@ -58,6 +55,9 @@
     display: flex;
     list-style: none;
     gap: 1.5rem;
+    /* Aucune marge à gauche pour qu'ils soient vraiment collés côté logo */
+    margin-left: 0;
+    margin-right: auto;  
   }
   
   .nav-links a {
@@ -108,18 +108,20 @@
   
   /* CTA BOUTON */
   .nav-cta {
+    margin-left: auto;         /* pousse le CTA complètement à droite */
     background-color: #fff;
     color: var(--accent-color);
     font-weight: 600;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    transition: background 0.3s, color 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
     text-decoration: none;
   }
   .nav-cta:hover {
     background-color: var(--blueberry-color);
     color: #fff;
+    transform: scale(1.05);
   }
   
   /* HAMBURGER (mobile) */
@@ -398,11 +400,6 @@
     height: 200px;
     object-fit: cover; /* recadrage pour remplir l'espace sans déformation */
   }
-  @media (max-width: 768px) {
-    .recipe-image {
-      height: 180px;
-    }
-  }
   
   /* Contenu */
   .recipe-content {
@@ -440,7 +437,186 @@
     transform: scale(1.05);
   }
   
+  /* PAGE FAQ */
+
+  .faq-hero {
+    height: 40vh;
+    min-height: 300px;
+    /* Dégradé plus subtil et élégant */
+    background: linear-gradient(to right, var(--blueberry-color), var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+    position: relative;
+  }
+  .faq-hero  .hero-text {
+    max-width: 800px;
+  }
+  .faq-hero  .hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .faq-hero  .hero-text p {
+    font-size: 1.2rem;
+  }
+
+  .white-space {
+    width: 100%;
+    height: 80px;          /* Ajuste la hauteur selon le rendu voulu */
+    background-color: #fff; /* Fond blanc */
+  }
+
+/***** 3 CARRÉS TERRACOTTA *****/
+.squares-terracotta {
+  display: flex;
+  justify-content: center;  
+  gap: 2rem;                /* Espace horizontal accru */
+  max-width: 1200px;        
+  margin: 3rem auto;        /* Plus de marge verticalement */
+}
+
+.squares-terracotta .info-box {
+  width: 350px;    /* Carrés plus grands */
+  height: 350px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0;
+}
+
+/* 3 nuances de terracotta (du plus foncé au plus clair) */
+.squares-terracotta .info-box:nth-child(1) {
+  background-color: #B77958; /* Terracotta foncé */
+}
+.squares-terracotta .info-box:nth-child(2) {
+  background-color: #D08C60; /* Moyen */
+}
+.squares-terracotta .info-box:nth-child(3) {
+  background-color: #D99C83; /* Plus clair */
+}
+
+.squares-terracotta .info-box h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.squares-terracotta .info-box p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+.squares-terracotta .info-box a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* SECTION TÉMOIGNAGES (carrousel) */
+.testimonials {
+  position: relative; /* nécessaire pour le pseudo-élément (guillemets) */
+  background-color: #FAF4EE; /* un fond clair */
+  text-align: center;
+  padding: 3rem 1rem;
+  overflow: hidden; /* pour éviter tout débordement du pseudo-élément */
+}
+/* GROS GUILLEMETS en filigrane */
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: url('assets/images/quotes.png') no-repeat center / contain;
+  opacity: 0.1;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--blueberry-color);
+  position: relative;
+  z-index: 2; /* au-dessus du pseudo-élément */
+
+}
+.testimonials h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent-color);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+/* Conteneur principal du slider */
+.testimonial-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 220px; /* hauteur fixe pour aligner les items */
+  overflow: hidden;
+  z-index: 2;
+}
+.testimonial-item {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
   
+  /* Encadrement blanc */
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center; /* Centre le contenu */
+}
+
+.testimonial-item p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.author {
+  font-weight: 600;
+  text-align: right;
+}
+.testimonial-item.active {
+  left: 0;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Flèches de navigation */
+.testimonials-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  z-index: 2;
+}
+.testimonials-nav span {
+  cursor: pointer;
+}
+.testimonials-nav i {
+  font-size: 1.5rem;
+  color: var(--blueberry-color);
+}
+
+
+
   /* PAGE CONTACT */
  /***** SECTION HERO SPÉCIALE CONTACT *****/
 .contact-hero {
@@ -617,17 +793,10 @@
     border: 0;
     border-radius: 8px;
   }
+
   
-  /***** RESPONSIVE *****/
-  @media (max-width: 992px) {
-    .contact-wrapper {
-      grid-template-columns: 1fr;
-    }
-    .contact-col-right {
-      margin-bottom: 1.5rem;
-    }
-  }
-  
+
+
   
   /* FOOTER */
   footer {
@@ -637,6 +806,18 @@
     color: #fff;
     margin-top: 2rem;
   }
+
+
+  /***** RESPONSIVE *****/
+  @media (max-width: 992px) {
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+    }
+    .contact-col-right {
+      margin-bottom: 1.5rem;
+    }
+  }
+
   
   /* RESPONSIVE : en-dessous de 992px */
   @media (max-width: 992px) {
@@ -648,32 +829,96 @@
   /* RESPONSIVE : en-dessous de 768px */
   @media (max-width: 768px) {
     .nav-links {
-      position: absolute;
-      top: 65px;
+      position: fixed;
+      top: 0;
       right: 0;
-      background: linear-gradient(135deg, var(--accent-color), var(--blueberry-color));
+      width: 70%; /* largeur raisonnable du menu */
+      height: 100vh;
+      background-color: rgba(234,210,197,0.95); /* couleur subtile semi-transparente */
       flex-direction: column;
-      width: 200px;
-      padding: 1rem;
+      padding-top: 80px;
       transform: translateX(100%);
-      transition: transform 0.3s ease;
-      box-shadow: -2px 0 6px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+      box-shadow: -4px 0 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      backdrop-filter: blur(8px); /* léger effet flou moderne */
+    }
+    .nav-links li {
+      opacity: 0;
+      transition: opacity 0.5s ease 0.2s;
+      padding: 15px 0;
     }
     .nav-links.show {
       transform: translateX(0);
     }
-  
+    .squares-terracotta {
+      flex-direction: column;
+      align-items: center;
+    }
+    .squares-terracotta .info-box {
+      width: 80%;
+      height: auto; /* l'aspect carré n'est plus prioritaire en mobile */
+      padding: 2rem 1rem;
+    }
+
+    .nav-links.show li {
+      opacity: 1;
+    }
     .nav-cta {
       margin-top: 1rem;
     }
-  
-    .hamburger {
-      display: flex;
+    .recipe-image {
+      height: 180px;
+    }
+
+    .info-section {
+      grid-template-columns: 1fr; /* 1 seule colonne */
     }
   
+    .testimonial-container {
+      height: auto; /* pour s'adapter si besoin */
+      min-height: 220px;
+    }
+
+  /* Icône hamburger animée en croix */
+  .hamburger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .hamburger span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #95573B;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger span:nth-child(1) { top: 0; }
+  .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+  .hamburger span:nth-child(3) { bottom: 0; }
+
+  /* Animation hamburger quand menu ouvert */
+  .hamburger.open span:nth-child(1) {
+    top: 50%; transform: rotate(45deg); background-color: #95573B;
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    bottom: 50%; transform: rotate(-45deg); background-color: #95573B;
+  }
     /* Mes Recettes en grille plus souple */
     .recipes {
       grid-template-columns: 1fr;
+    }
+
+    body {
+      overflow-x: hidden; /* empêche tout débordement horizontal */
     }
   }
   

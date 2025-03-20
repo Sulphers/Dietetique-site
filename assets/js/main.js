@@ -4,6 +4,7 @@ const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('show');
+  hamburger.classList.toggle('open');
 });
 
 // FAQ ACCORDEON (avec flèche qui pivote)
@@ -42,4 +43,41 @@ scrollTopBtn.addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
+
+
+// Sélection des éléments
+const testimonialItems = document.querySelectorAll('.testimonial-item');
+const prevBtn = document.querySelector('.arrow-left');
+const nextBtn = document.querySelector('.arrow-right');
+
+let currentIndex = 0;
+
+// Affiche le témoignage correspondant à l'index
+function showTestimonial(index) {
+  testimonialItems.forEach((item) => {
+    item.classList.remove('active');
+  });
+  testimonialItems[index].classList.add('active');
+}
+
+// Navigation
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+  showTestimonial(currentIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % testimonialItems.length;
+  showTestimonial(currentIndex);
+});
+
+// Premier témoignage par défaut
+showTestimonial(currentIndex);
+
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % testimonialItems.length;
+    showTestimonial(currentIndex);
+  }, 5000); // fait défiler toutes les 5 secondes
+  
 
