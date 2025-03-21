@@ -517,7 +517,7 @@
 /* SECTION TÉMOIGNAGES (carrousel) */
 .testimonials {
   position: relative; /* nécessaire pour le pseudo-élément (guillemets) */
-  background-color: #FAF4EE; /* un fond clair */
+  background-color: #ede1d5; /* un fond clair */
   text-align: center;
   padding: 3rem 1rem;
   overflow: hidden; /* pour éviter tout débordement du pseudo-élément */
