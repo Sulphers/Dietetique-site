@@ -18,7 +18,7 @@
   /* TYPO */
   body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-color);
+    background-color: #ffff;
     color: var(--text-color);
     line-height: 1.6;
   }
