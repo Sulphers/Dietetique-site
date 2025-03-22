@@ -949,5 +949,17 @@
     body {
       overflow-x: hidden; /* empêche tout débordement horizontal */
     }
+
+    .hero {
+      height: 60vh;            /* Moins haut en mobile */
+      min-height: 300px;       /* Un minimum pour garder un aspect correct */
+    }
+  
+    .hero::before {
+      /* On désactive le fixed sur mobile pour éviter les bugs d’affichage */
+      background-attachment: scroll; 
+      background-position: center;   /* Pour être certain que l’image soit centrée */
+    }
+    
   }
   
