@@ -45,39 +45,92 @@ scrollTopBtn.addEventListener('click', () => {
 });
 
 
-// Sélection des éléments
+// -----------------------------
+// CONFIGURATION DU CAROUSEL
+// -----------------------------
 const testimonialItems = document.querySelectorAll('.testimonial-item');
 const prevBtn = document.querySelector('.arrow-left');
 const nextBtn = document.querySelector('.arrow-right');
 
 let currentIndex = 0;
+let isAnimating = false;
+let autoSlideInterval; // stockera l'ID du setInterval
 
-// Affiche le témoignage correspondant à l'index
-function showTestimonial(index) {
-  testimonialItems.forEach((item) => {
-    item.classList.remove('active');
-  });
-  testimonialItems[index].classList.add('active');
+// Initialise le premier témoignage
+testimonialItems[currentIndex].classList.add('active');
+
+// Lance l'animation d'un slide
+function slideTo(newIndex, direction = 'next') {
+  if (isAnimating || newIndex === currentIndex) return;
+  isAnimating = true;
+
+  const currentItem = testimonialItems[currentIndex];
+  const nextItem = testimonialItems[newIndex];
+
+  let outClass, inClass;
+  if (direction === 'next') {
+    outClass = 'slide-out-to-left';
+    inClass = 'slide-in-from-right';
+  } else {
+    outClass = 'slide-out-to-right';
+    inClass = 'slide-in-from-left';
+  }
+
+  nextItem.classList.remove('active', 'slide-in-from-left', 'slide-in-from-right');
+  nextItem.classList.add(inClass);
+
+  currentItem.classList.remove('active');
+  currentItem.classList.add(outClass);
+
+  setTimeout(() => {
+    currentItem.classList.remove(outClass);
+    nextItem.classList.remove(inClass);
+    nextItem.classList.add('active');
+    currentIndex = newIndex;
+    isAnimating = false;
+  }, 600);
 }
 
-// Navigation
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
-  showTestimonial(currentIndex);
-});
+// -----------------------------
+// GESTION DES FLÈCHES
+// -----------------------------
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener('click', () => {
+    // Stop & reset timer
+    stopAutoSlide();
 
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % testimonialItems.length;
-  showTestimonial(currentIndex);
-});
+    // Calcule l'index précédent
+    let newIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+    slideTo(newIndex, 'prev');
 
-// Premier témoignage par défaut
-showTestimonial(currentIndex);
+    // Relance le timer
+    startAutoSlide();
+  });
 
+  nextBtn.addEventListener('click', () => {
+    stopAutoSlide();
 
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % testimonialItems.length;
-    showTestimonial(currentIndex);
-  }, 5000); // fait défiler toutes les 5 secondes
-  
+    let newIndex = (currentIndex + 1) % testimonialItems.length;
+    slideTo(newIndex, 'next');
 
+    startAutoSlide();
+  });
+}
+
+// -----------------------------
+// AUTO-DÉFILEMENT
+// -----------------------------
+function startAutoSlide() {
+  // Toutes les 5 secondes on déclenche un slide 'next'
+  autoSlideInterval = setInterval(() => {
+    let newIndex = (currentIndex + 1) % testimonialItems.length;
+    slideTo(newIndex, 'next');
+  }, 5000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+}
+
+// Lance l’auto-slide au démarrage
+startAutoSlide();

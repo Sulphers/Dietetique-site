@@ -161,9 +161,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('../images/alimentation-accueil.png');
+
+  /* On fixe l’arrière-plan pour l’effet parallax simple */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('../images/alimentation-accueil.png');
     z-index: 1;
   }
   
@@ -557,29 +562,56 @@
 /* Conteneur principal du slider */
 .testimonial-container {
   position: relative;
-  width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  height: 220px; /* hauteur fixe pour aligner les items */
+  height: 250px; /* hauteur fixe pour aligner les items */
   overflow: hidden;
-  z-index: 2;
 }
 .testimonial-item {
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 0;
   width: 100%;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: transform 0.5s ease, opacity 0.5s ease;
   
-  /* Encadrement blanc */
+  /* De base, l’item est “hors écran” à droite, invisible */
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  
+  /* Styles d’affichage (fond blanc, ombre, etc.) */
   background-color: #fff;
   border-radius: 8px;
-  padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center; /* Centre le contenu */
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Témoignage actif */
+.testimonial-item.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Classes d’animation utilisées temporairement au changement */
+.testimonial-item.slide-out-to-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.testimonial-item.slide-in-from-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* (Si tu utilises un bouton PREV) 
+   l'item courant sort vers la droite, 
+   le nouvel item entre par la gauche */
+.testimonial-item.slide-out-to-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.testimonial-item.slide-in-from-left {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
 .testimonial-item p {
@@ -602,17 +634,14 @@
 .testimonials-nav {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 2rem;
-  margin-top: 2rem;
-  z-index: 2;
+  margin-top: 1.5rem;
 }
 .testimonials-nav span {
   cursor: pointer;
 }
 .testimonials-nav i {
   font-size: 1.5rem;
-  color: var(--blueberry-color);
 }
 
 
