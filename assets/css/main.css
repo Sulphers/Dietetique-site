@@ -191,7 +191,7 @@
   margin-bottom: 2rem;
   }
   
-  .hero button {
+  .hero a {
     background-color: #fff;
     color: var(--accent-color);
     border: none;
@@ -201,12 +201,14 @@
     font-size: 1rem;
     font-weight: 600;
     transition: transform 0.3s, background-color 0.3s;
+    text-decoration: none;
   }
-  .hero button:hover {
+  .hero a:hover {
     background-color: var(--blueberry-color);
     color: #fff;
     transform: scale(1.05);
   }
+
   
   /* PRESENTATION, FAQ, ETC. (inchangés) */
   .presentation, .faq {
@@ -718,7 +720,6 @@
     margin: 0.75rem 0;
     font-size: 1rem;
     line-height: 1.6;
-    display: flex;
     align-items: center;
   }
   .contact-details-box p i {
@@ -835,7 +836,99 @@
     color: #fff;
     margin-top: 2rem;
   }
+  
+  /* Conteneur principal du footer (au-dessus du copyright) */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-logo img {
+    width: 60px;            /* Taille plus discrète */
+    height: auto;
+    border-radius: 50%;     /* Style arrondi */
+    display: block;
+  }
+  
+  /* Section des liens (ex: Conditions d’utilisation) */
+  .footer-links a {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .footer-links a:hover {
+    background-color: #fff;
+    color: var(--dark-bg);
+  }
+  
+  /* Réseaux sociaux */
+  .footer-socials a {
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;      /* Pour des icônes suffisamment visibles */
+    transition: color 0.3s;
+  }
+  .footer-socials a:hover {
+    color: var(--accent-color); 
+  }
 
+
+/****** PAGE Mentions LEGALES *******/
+.mentions-hero {
+  height: 40vh;
+  min-height: 300px;
+  /* Même style que contact-hero ou faq-hero */
+  background: linear-gradient(to right, var(--blueberry-color), var(--accent-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  position: relative;
+}
+.mentions-hero .hero-text {
+  max-width: 800px;
+}
+.mentions-hero .hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.mentions-hero .hero-text p {
+  font-size: 1.2rem;
+}
+
+.mentions-legales {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.mentions-legales h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--blueberry-color);
+}
+.mentions-legales p {
+  margin-bottom: 1rem;
+}
+.mentions-legales a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+.mentions-legales a:hover {
+  text-decoration: underline;
+}
 
   /***** RESPONSIVE *****/
   @media (max-width: 992px) {
@@ -845,14 +938,11 @@
     .contact-col-right {
       margin-bottom: 1.5rem;
     }
-  }
 
-  
-  /* RESPONSIVE : en-dessous de 992px */
-  @media (max-width: 992px) {
     .nav-links {
       gap: 1rem;
     }
+
   }
   
   /* RESPONSIVE : en-dessous de 768px */
@@ -960,6 +1050,13 @@
       background-attachment: scroll; 
       background-position: center;   /* Pour être certain que l’image soit centrée */
     }
-    
+    .footer-content {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .footer-logo, .footer-links, .footer-socials {
+      margin: 0 1.5rem;
+    }
+
   }
   
