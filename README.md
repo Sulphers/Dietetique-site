@@ -70,6 +70,5 @@ Les contributions sont bienvenues ! Voici comment tu peux contribuer :
 
 ## Licence
 
-Ce projet est sous licence **Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification 4.0 International (CC BY-NC-ND 4.0)**.  
-Pour plus d'informations, voir le fichier [LICENSE.md](LICENSE.md).
+Ce projet est sous licence libre
 
