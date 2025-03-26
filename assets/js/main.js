@@ -134,3 +134,5 @@ function stopAutoSlide() {
 
 // Lance l’auto-slide au démarrage
 startAutoSlide();
+
+

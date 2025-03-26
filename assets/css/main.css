@@ -865,6 +865,7 @@
   .footer-links a:hover {
     background-color: #fff;
     color: var(--dark-bg);
+    transform: scale(1.05);
   }
   
   /* Réseaux sociaux */
@@ -929,6 +930,15 @@
 .mentions-legales a:hover {
   text-decoration: underline;
 }
+
+
+
+
+
+
+
+
+
 
   /***** RESPONSIVE *****/
   @media (max-width: 992px) {
@@ -1039,12 +1049,24 @@
     body {
       overflow-x: hidden; /* empêche tout débordement horizontal */
     }
-
     .hero {
-      height: 60vh;            /* Moins haut en mobile */
-      min-height: 300px;       /* Un minimum pour garder un aspect correct */
+      height: auto;        /* hauteur auto plutôt que 60vh */
+      min-height: 400px;   /* un minimum si tu veux */
+      padding: 2rem 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;     /* au lieu de 3rem */
     }
   
+    .hero-content p {
+      font-size: 1rem;     /* plus petit pour tenir sur mobile */
+      margin-bottom: 1.5rem;
+    }
+    .hero-content a {
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+    }
     .hero::before {
       /* On désactive le fixed sur mobile pour éviter les bugs d’affichage */
       background-attachment: scroll; 
@@ -1056,6 +1078,18 @@
     }
     .footer-logo, .footer-links, .footer-socials {
       margin: 0 1.5rem;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      white-space: nowrap;        /* Évite la coupure du texte “Mentions légales” */
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid #fff;     /* Tu peux laisser ou enlever la bordure */
+      border-radius: 4px;
+      padding: 0.2rem 0.4rem;     /* Réduit l’espace pour un rendu discret */
+      font-size: 0.9rem;          /* Taille de police un peu plus petite si tu veux */
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
     }
 
   }
