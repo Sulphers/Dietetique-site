@@ -125,7 +125,7 @@ function startAutoSlide() {
   autoSlideInterval = setInterval(() => {
     let newIndex = (currentIndex + 1) % testimonialItems.length;
     slideTo(newIndex, 'next');
-  }, 5000);
+  }, 10000);
 }
 
 function stopAutoSlide() {

@@ -830,54 +830,105 @@
   
   /* FOOTER */
   footer {
-    text-align: center;
-    padding: 2rem;
     background-color: var(--dark-bg);
     color: #fff;
+    padding: 2rem;
     margin-top: 2rem;
   }
   
-  /* Conteneur principal du footer (au-dessus du copyright) */
   .footer-content {
+    /* 4 colonnes adaptatives */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    gap: 2rem; /* espace horizontal */
+  }
+  
+  /* Chaque colonne a une largeur mini, puis s'étire */
+  .footer-col {
+    flex: 1 1 200px;
+  }
+  
+  /* Colonne du logo */
+  .footer-col-logo {
+    display: flex;
+    justify-content: center; /* ou left si tu préfères aligner à gauche */
+    align-items: center;
+  }
+  .footer-logo-img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  /* Colonne des liens */
+  .footer-col-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-col-links ul li {
+    margin-bottom: 0.3rem;
+  }
+  .footer-col-links ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-col-links ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Colonne infos (adresse, tel, email) */
+  .footer-col-infos p {
+    margin: 0.3rem 0;
+  }
+  .footer-col-infos a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-col-infos a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Colonne de droite : réseaux + mentions légales */
+  .footer-col-right {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end; /* tout aligné à droite */
     gap: 1rem;
-    margin-bottom: 1rem;
   }
-  
-  .footer-logo img {
-    width: 60px;            /* Taille plus discrète */
-    height: auto;
-    border-radius: 50%;     /* Style arrondi */
-    display: block;
-  }
-  
-  /* Section des liens (ex: Conditions d’utilisation) */
-  .footer-links a {
-    text-decoration: none;
+  .footer-socials a {
+    font-size: 1.5rem;
     color: #fff;
+    margin-left: 0.5rem;
+    text-decoration: none;
+  }
+  .footer-socials a:hover {
+    color: var(--accent-color);
+  }
+  .footer-legal .footer-mentions-link {
+    display: inline-block;
     border: 1px solid #fff;
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
   }
-  .footer-links a:hover {
+  .footer-legal .footer-mentions-link:hover {
     background-color: #fff;
     color: var(--dark-bg);
-    transform: scale(1.05);
   }
   
-  /* Réseaux sociaux */
-  .footer-socials a {
-    color: #fff;
-    margin: 0 0.5rem;
-    font-size: 1.5rem;      /* Pour des icônes suffisamment visibles */
-    transition: color 0.3s;
+  /* Copyright */
+  .footer-copy {
+    text-align: center;
+    font-size: 0.9rem;
   }
-  .footer-socials a:hover {
-    color: var(--accent-color); 
-  }
+
 
 
 /****** PAGE Mentions LEGALES *******/
@@ -1073,14 +1124,25 @@
       background-position: center;   /* Pour être certain que l’image soit centrée */
     }
     .footer-content {
-      flex-direction: row;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
-    .footer-logo, .footer-links, .footer-socials {
-      margin: 0 1.5rem;
+    .footer-col {
+      flex: none; /* chaque col prend toute la largeur */
+      width: 100%;
     }
+    .footer-col-left,
+    .footer-col-center,
+    .footer-col-right {
+      align-items: center;
+    }
+    
+  .footer-col-center .footer-infos p {
+    text-align: center; 
+  }
 
-    .footer-links a {
+    .footer-legals a {
       display: inline-block;
       white-space: nowrap;        /* Évite la coupure du texte “Mentions légales” */
       color: #fff;
