@@ -632,21 +632,6 @@
   transform: translateX(0);
 }
 
-/* Flèches de navigation */
-.testimonials-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-.testimonials-nav span {
-  cursor: pointer;
-}
-.testimonials-nav i {
-  font-size: 1.5rem;
-}
-
-
 
   /* PAGE CONTACT */
  /***** SECTION HERO SPÉCIALE CONTACT *****/
