@@ -1,4 +1,4 @@
-# Cabinet de Diététique Fonctionnelle Ines
+# Site WEB Cabinet de diététique
 
 Bienvenue sur le dépôt officiel du projet **Cabinet de Diététique Fonctionnelle Ines**, un site internet moderne, élégant et intuitif conçu spécialement pour promouvoir les services d'une diététicienne-nutritionniste spécialisée en diététique fonctionnelle.
 
